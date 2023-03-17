@@ -7,14 +7,20 @@
 }
 
 /* nav */
+nav{
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+}
 
 nav .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 1.5em 2em;
     background-color: white;
     height: 90px;
+    position: relative;
 }
 
 .title{
@@ -38,16 +44,23 @@ nav .container{
     text-decoration: none;
     color: black;
     font-style: regular;
+    position: relative;
 }
 
-.nav-links li:hover{
-    border-bottom: 3px solid #008000;
+.nav-links a:hover::before{
+    width: 100%;
 }
 
-.nav-links a:active{
-    border-bottom: 3px solid #008000;
-    font-weight: 500;
+.nav-links a:before{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 1px;
+    border-bottom: 2px solid #008000;
+    bottom: -1px;
+    transition: width 0.3s;
 }
+
 
 .logo-icon{
     width: 100%;
@@ -56,6 +69,8 @@ nav .container{
 
 nav .cta{
     color: white;
+    /* position: absolute; */
+    right: 40px;
 }
 
 .cta{
@@ -64,6 +79,7 @@ nav .cta{
     border-radius: 10px;
     color: white;
     border: none;
+    text-decoration: none;
 }
 
 .cta:hover{
@@ -313,11 +329,17 @@ footer .title{
     font-size: 16px;
     line-height: 19px;
     margin-bottom: 34px;
+    position: relative;
+    margin-left: 10px;
 }
 
-/* footer .title::before{
-    border-left: 3px solid #008000;
-
+/* footer .title:before{
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 15px;
+    border-left: 10px solid #008000;
+    left: -3%;
 } */
 
 .container .profile{
@@ -391,7 +413,7 @@ footer .title{
 
 @media screen and (max-width: 780px) {
     header{
-        height: 296px;
+        height: 490px;
     }
 
     header .container{
