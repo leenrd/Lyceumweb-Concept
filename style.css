@@ -5,57 +5,35 @@
     font-family: 'Inter', sans-serif;
     /* outline: 1px red solid; */
 }
-
-/* nav */
 #navbar {
     transition: top 0.3s ease-in-out;
 }
-  
-
-nav{
-    position: fixed;
-    width: 100vw;
-    z-index: 1;
+:root{
+    --accent: green;
 }
-
-nav .container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1.5em 2em;
-    background-color: white;
-    height: 90px;
-    position: relative;
+button{
+    border: none;
+    border-radius: 10px;
+    padding: .8em 3em;
+    background-color: var(--accent);
+    color: white;
 }
-
-.title{
-    display: flex;
-    align-items: center;
-    gap: 17px;
+button:hover{
+    background-color: aliceblue;
+    color: var(--accent);
+    transition: background-color .3s ease;
 }
-
-.logo{
-    font-size: 16px;
+.hamburger{
+    cursor: pointer;
 }
-
-.nav-links{
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 50px;
-}
-
-.nav-links a{
+a{
     text-decoration: none;
     color: black;
-    font-style: regular;
     position: relative;
 }
-
 .nav-links a:hover::before{
     width: 100%;
 }
-
 .nav-links a:before{
     position: absolute;
     content: "";
@@ -65,43 +43,45 @@ nav .container{
     bottom: -1px;
     transition: width 0.3s;
 }
-
-
-.logo-icon{
-    width: 100%;
-    max-width: 54px;
+.title{
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
-
-nav .cta{
-    color: white;
-    /* position: absolute; */
-    right: 40px;
+.title h1{
+    font-size: clamp(0.875rem, 0.7188rem + 0.3125vw, 1rem);
 }
-
-.cta{
-    background-color: #008000;
-    padding: .8em 3em;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    text-decoration: none;
-}
-
-.cta:hover{
+nav{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
     background-color: white;
-    color: #008000;
-    transition: background-color 0.3s ease;
-    border: .5px solid #008000;
 }
-
-/* header */
+nav img{
+    width: 100%;
+    max-width: 60px;
+}
+.nav-links{
+    display: none;
+    list-style: none;
+    gap: 2em;
+    margin-left: auto;
+    margin-right: 2em;
+}
+.cta{
+    display: none;
+}
 header{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5),
                        rgba(0, 0, 0, 0.5)), url(header.jpg);
     background-size: cover;
     height: 736px;
 }
-
 header .container{
     height: inherit;
     display: flex;
@@ -111,63 +91,38 @@ header .container{
     gap: 30px;
     color: white;
 }
-
 .copy{
     text-shadow: 1px -1px 5px rgba(121,121,121,0.49);
     text-align: center;
     font-size: clamp(2.5625rem, 1.7042rem + 3.662vw, 5rem);
 }
-
-.subtext{
-    margin-bottom: 17px;
-    text-align: center;
-}
-
-header .cta{
-    color: #008000;
-    background-color: white;
-}
-
-header .cta:hover{
-    background-color: #008000;
-    color: white;
-    border: none;
-}
-
-/* action-section */
-
 .action{
-    height: 237px;
+    height: 300px;
     background-color: #efefef;
     display: flex;
     justify-content: center;
+    padding: 2em;
 }
-
 .action .container{
-    height: inherit;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 100px;
     width: 90rem;
 }
-
 .container .data-text{
     display: flex;
-    gap: 110px;
+    gap: 3em;
     align-items: center;
 }
-
 .data-text h1{
     font-size: clamp(1.25rem, 0.9859rem + 1.1268vw, 2rem);
     margin-bottom: 11px;
 }
-
 .container .divider{
     border-left: 1px solid black;
     height: 38px;
 }
-
 .action-container{
     background: #2C57EE;
     color: white;
@@ -177,48 +132,48 @@ header .cta:hover{
     align-items: center;
     gap: 40px;
 }
-
 .action-container button{
     padding: 25px 26px;
     border: none;
-    background-color: white;
-    color: #2C57EE;
+    background-color: #2C57EE;
+    color: white;
+    border: .5px solid #efefef;
     border-radius: 10px;
 }
-
-/* social-proof */
-
+.action-container button:hover{
+    background-color: white;
+    color: #2C57EE;
+    transition: background-color 0.2s ease;
+}
+i{
+    margin-right: .8em;
+}
 .social{
-    height: 396px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: start;
     padding: 5rem;
 }
-
 .social .container{
     display: flex;
-    gap: 17rem;
+    flex-direction: column;
+    gap: 2em;
 }
-
 .container .text{
     display: flex;
-    gap: 8rem;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.3em;
+    margin-inline: auto;
 }
-
 .text p{
     max-width: 390px;
 }
-
 .text span{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: clamp(1.25rem, 0.3636rem + 1.8182vw, 2rem);
-    line-height: 39px;
 }
-
 .icons{
     display: flex;
     gap: 20px;
@@ -228,35 +183,28 @@ header .cta:hover{
     max-width: 300px;
     height: 171px;
 }
-
 .icons img{
     margin-top: 10px;
     filter: grayscale(100);
     max-width: 70px;
     width: 100%;
 }
-
-/* values */
-
 .values{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .values .container{
     background-color: #008000;
-    border-radius: 10px;
-    width: 1338px;
-    height: 440px;
+    border-radius:50px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 7rem;
-    gap: 112px;
+    gap: 4em;
 }
-
 .values h3{
     font-family: 'Inter';
     font-style: normal;
@@ -265,23 +213,19 @@ header .cta:hover{
     line-height: 39px;
     margin-bottom: 20px;
 }
-
 .values .container div{
-    text-align: center;
+    text-align: start;
 }
-
 .values .divider{
-    height: 200px;
-    border-left: 1px solid white;
+    height: 0;
+    width: 200px;
+    border-bottom: 1px solid white;
 }
-
-/* events */
 .events{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .events .container{
     margin: 89px;
     display: flex;
@@ -291,14 +235,12 @@ header .cta:hover{
     margin-bottom: 130px;
     margin-top: 130px;
 }
-
 .events .box{
     background: grey;
     border-radius: 10px;
     height: 200px;
     width: 400px;
 }
-
 .events .text{
    display: flex;
    flex-flow: column wrap;
@@ -306,51 +248,39 @@ header .cta:hover{
    align-items: start;
    margin-bottom: 80px;
 }
-
-
 .flex{
     display: flex;
     flex-flow: row wrap;
     gap: 11px;
+    justify-content: center;
 }
-
-/* footer */
 footer{
     background: rgb(40, 40, 40);
     color: white;
-    height: 500px;
+    height: 600px;
 }
 
 footer .container{
     display: flex;
     height: inherit;
     justify-content: space-around;
+    flex-direction: column;
+    padding: 2em;
 }
 
 footer .title{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 16px;
-    line-height: 19px;
-    margin-bottom: 34px;
-    position: relative;
-    margin-left: 10px;
+    margin-bottom: 2em;
 }
-
-/* footer .title:before{
-    position: absolute;
-    content: "";
-    width: 3px;
-    height: 15px;
-    border-left: 10px solid #008000;
-    left: -3%;
-} */
 
 .container .profile{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
+    margin-bottom: 2em;
 }
 
 .profile p{
@@ -361,7 +291,7 @@ footer .title{
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
-    margin-bottom: 190px;
+    margin-bottom: 2.5em;
 }
 
 .contact{
@@ -373,12 +303,13 @@ footer .title{
 .contact .links{
     display: flex;
     flex-flow: column wrap;
-    margin-bottom: 180px;
+    margin-bottom: 1em;
 }
 
 .links a{
     text-decoration: none;
     color: white;
+    margin-bottom: .5em;
 }
 
 .action-section{
@@ -414,91 +345,63 @@ footer .title{
     border: 1px solid white;
     transition: background 0.2s ease;
 }
-
-
-@media screen and (max-width: 780px) {
-    header{
-        height: 490px;
+@media screen and (min-width: 800px) {
+    .hamburger{
+        display: none;
     }
-
-    header .container{
-        gap: 10px;
+    .nav-links{
+        display: flex;
     }
-
+    .data-text{
+        gap: 11em;
+    }
     .cta{
-        border-radius: 50px;
+        display: block;
     }
-
-    .action{
-        height: 300px;
-        
-    }
-    .action .container{ 
-        flex-direction: column;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    .action-container button{
-        border-radius: 50px;
-    }
-    .social{
-        height: 500px;
-        flex-direction: column;
-        align-items: start;
-    }
-
-    .social .container{
+    .action .container{
         flex-direction: row;
-        gap: 40px;
+    }    
+    .container .text, .social .container{
+        flex-direction: row;
+        gap: 5em;
+        align-items: center;
     }
-
-    .container .text{
-        flex-direction: column;
-        gap: 1rem;
-        align-items: start;
+    .events .container .text{align-items: start;}
+    .social{
+        justify-content: center;
     }
-
-    .text p{
-        width: 260px;
-    }
-
     .values .container{
-        height: 1100px;
-        flex-direction: column;
-        border-radius: 0;
+        border-radius: 10px;
+        flex-direction: row;
+        margin: 2em;
     }
-    
+    .values .container div{text-align: center;}
     .values .divider{
-        height: 0;
-        border-bottom: 1px solid white;
-        width: 250px;
+        height: 200px;
+        width: 0;
+        border-left: 1px solid white;
     }
-
+    .events .container .text{
+        flex-direction: column;
+        gap: 2em;
+        margin-inline: 2em;
+    }
     footer{
-        height: 700px;
+        height: 330px;
     }
-
     footer .container{
-        height: inherit;
-        flex-direction: column-reverse;
-        justify-content: start;
-        padding: 20px 27px;
+        flex-direction: row;
     }
-
-    .contact{
-        margin-top: 50px;
+}
+@media screen and (max-width: 500px){
+    header{
+        height: 500px;
     }
-
-    .contact .links{
-        margin-bottom: 50px;
+    .values .container{
+        border-radius: 0;
+        flex-direction: column;
     }
-   
-    .action-section{
-        margin-bottom: 5rem;
-    }
-
-    .profile p{
-        margin-bottom: 80px;
+    .container .data-text{
+        gap: 3em;
     }
 }
